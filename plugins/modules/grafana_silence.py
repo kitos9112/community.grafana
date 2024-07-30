@@ -304,6 +304,7 @@ class GrafanaSilenceInterface(object):
         for response in responses:
             if (
                 response["comment"] == comment
+                and response["status"]["state"] == "active"
                 and response["createdBy"] == created_by
                 and response["matchers"] == matchers
             ):
