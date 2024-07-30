@@ -296,7 +296,7 @@ class GrafanaSilenceInterface(object):
             response.pop("id", None)
         return response
 
-    def get_silence(self, comment, created_by, starts_at, ends_at, matchers):
+    def get_silence(self, comment, created_by, matchers):
         url = "/api/alertmanager/grafana/api/v2/silences"
 
         responses = self._send_request(url, headers=self.headers, method="GET")
@@ -305,8 +305,6 @@ class GrafanaSilenceInterface(object):
             if (
                 response["comment"] == comment
                 and response["createdBy"] == created_by
-                and response["startsAt"] == starts_at
-                and response["endsAt"] == ends_at
                 and response["matchers"] == matchers
             ):
                 return response
@@ -370,7 +368,7 @@ def main():
     grafana_iface = GrafanaSilenceInterface(module)
 
     silence = grafana_iface.get_silence(
-        comment, created_by, starts_at, ends_at, matchers
+        comment, created_by, matchers
     )
 
     if state == "present":
@@ -380,23 +378,10 @@ def main():
             )
             silence = grafana_iface.get_silence_by_id(silence["silenceID"])
             changed = True
-        else:
-            module.exit_json(
-                failed=failed,
-                changed=changed,
-                msg="Silence with same parameters already exists! eg. '%s'"
-                % silence["id"],
-            )
     elif state == "absent":
         if silence:
             grafana_iface.delete_silence(silence["id"])
             changed = True
-        else:
-            module.exit_json(
-                failed=False,
-                changed=changed,
-                msg="Silence does not exist",
-            )
 
     module.exit_json(failed=failed, changed=changed, silence=silence)
 
