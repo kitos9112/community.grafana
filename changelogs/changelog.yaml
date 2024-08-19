@@ -333,3 +333,21 @@ releases:
       name: grafana_contact_point
       namespace: ''
     release_date: '2024-05-31'
+  2.1.0:
+    changes:
+      bugfixes:
+      - Add missing function argument in `grafana_contact_point` for org handling
+      - Fix var prefixes in silence-task in role
+      - Fixed check if grafana_api_key is defined for `grafana_dashboard` lookup
+      deprecated_features:
+      - Deprecate `grafana_notification_channel`. It will be removed in version 3.0.0
+      minor_changes:
+      - Manage subfolders for `grafana_folder` and specify uid
+    fragments:
+    - 378-grafana-version-sorting.yml
+    - 379-contact-points-org-name-func-args.yml
+    - 381-sub-folders.yml
+    - 382-notification-channel-deprecation.yml
+    - 392-dashboard-lookup-apikey.yml
+    - patch-1.yaml
+    release_date: '2024-08-08'

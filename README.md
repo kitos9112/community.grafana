@@ -10,6 +10,19 @@ This repo hosts the `community.grafana` Ansible Collection.
 
 The collection includes a variety of Ansible content to help automate the management of resources in Grafana.
 
+## Communication
+
+* Join the Ansible forum:
+  * [Get Help](https://forum.ansible.com/c/help/6): get help or help others.
+  * [Posts tagged with 'grafana'](https://forum.ansible.com/tag/grafana): subscribe to participate in collection-related conversations.
+  * [Ansible Forum Group 'grafana-collection'](https://forum.ansible.com/g/grafana-collection): by joining the team you will automatically get subscribed to the posts tagged with [grafana](https://forum.ansible.com/tag/grafana).
+  * [Social Spaces](https://forum.ansible.com/c/chat/4): gather and interact with fellow enthusiasts.
+  * [News & Announcements](https://forum.ansible.com/c/news/5): track project-wide announcements including social events.
+
+* The Ansible [Bullhorn newsletter](https://docs.ansible.com/ansible/devel/community/communication.html#the-bullhorn): used to announce releases and important changes.
+
+For more information about communication, see the [Ansible communication guide](https://docs.ansible.com/ansible/devel/community/communication.html).
+
 ## Included content
 
 Click on the name of a plugin or module to view that content's documentation:
@@ -39,7 +52,7 @@ Click on the name of a plugin or module to view that content's documentation:
 We aim at keeping the last 3 Major versions of Grafana tested.
 This collection is currently testing the modules against following versions of Grafana:
 ```
-grafana_version: ["8.5.27", "9.5.19", "10.4.3"]
+grafana_version: ["11.1.4", "10.4.7", "9.5.20"]
 ```
 
 ## Installation and Usage
